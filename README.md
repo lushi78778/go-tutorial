@@ -2,7 +2,7 @@
 
 这是使用 Writerside 编写文档并自动部署到 GitHub pages 的教程
 
-
+同时也是 Go 语言入门官方教程
 
 ## Writerside
 
