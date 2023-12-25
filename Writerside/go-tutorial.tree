@@ -6,5 +6,6 @@
                  name="Go-tutorial"
                   start-page="Hello-Go.md">
 
+    <toc-element topic="Q-A.md"/>
     <toc-element topic="Hello-Go.md"/>
 </instance-profile>

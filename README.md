@@ -2,6 +2,8 @@
 
 这是使用 Writerside 编写文档并自动部署到 GitHub pages 的教程
 
+
+
 ## Writerside
 
 Writerside 是一款基于 IntelliJ 平台的 JetBrains IDE。用它来创作、构建、测试和发布技术文档。
@@ -132,24 +134,6 @@ env:
 
 - 向上推送，享受自动构建的快乐~
 
-## 答疑区
-
-<script src="https://giscus.app/client.js"
-        data-repo="lushi78778/go-tutorial"
-        data-repo-id="R_kgDOK9X-Kg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOK9X-Ks4Cb-PJ"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="1"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
 
 ## Reference
 
