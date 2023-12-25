@@ -2,6 +2,8 @@
 
 接下来，你将用一小段时间，快速完成go的安装与入门，包括第一个hello world和关于模块的小教程
 
+在本教程中，你将编写打包到两个模块中的函数：一个 带有发送问候语的逻辑;另一个是第一个作为消费者。
+
 ## 安装 Go {id="go_1"}
 
 访问一下地址以获取go：https://go.dev/doc/install
@@ -331,6 +333,205 @@ PS D:\projectCode\go\hello\hello> go run .
 Great to see you, Gladys!
 ```
 
+## 在一个请求中获取多个人的问候语
+
+修改greetings\greetings.go
+
+```Go
+package greetings
+
+import (
+    "errors"
+    "fmt"
+    "math/rand"
+)
+
+// returns a greeting for the named person.
+func Hello(name string) (string, error) {
+    // If no name was given, return an error with a message.
+    if name == "" {
+        return name, errors.New("empty name")
+    }
+    // Create a message using a random format.
+    message := fmt.Sprintf(randomFormat(), name)
+    return message, nil
+}
+
+//新添加的函数 添加一个参数为名称切片的函数
+func Hellos(names []string) (map[string]string, error) {
+
+    messages := make(map[string]string)
+
+    for _, name := range names {
+        message, err := Hello(name)
+        if err != nil {
+            return nil, err
+        }
+
+        messages[name] = message
+    }
+    return messages, nil
+}
 
 
+func randomFormat() string {
+
+    formats := []string{
+        "Hi, %v. Welcome!",
+        "Great to see you, %v!",
+        "Hail, %v! Well met!",
+    }
+    
+    return formats[rand.Intn(len(formats))]
+}
+```
+
+修改 hello\hello.go
+
+```Go
+package main
+
+import (
+    "fmt"
+    "log"
+
+    "example.com/greetings"
+)
+
+func main() {
+    // Set properties of the predefined Logger, including
+    // the log entry prefix and a flag to disable printing
+    // the time, source file, and line number.
+    log.SetPrefix("greetings: ")
+    log.SetFlags(0)
+
+    // 创建一个变量作为包含三个的切片类型 名字。names
+    names := []string{"Gladys", "Samantha", "Darrin"}
+
+    // 将变量作为参数传递给函数。namesHellos
+    messages, err := greetings.Hellos(names)
+    if err != nil {
+        log.Fatal(err)
+    }
+    // If no error was returned, print the returned map of
+    // messages to the console.
+    fmt.Println(messages)
+}
+```
+
+其实就是用循环输出了好多人的问候语
+
+输出样例
+
+```Bash
+PS D:\projectCode\book\go-tutorial\code\hello\hello>  go run .
+map[Darrin:Great to see you, Darrin! Gladys:Hail, Gladys! Well met! Samantha:Great to see you, Samantha!]
+```
+
+## 测试
+
+以 `_test.go` 结尾的文件名会告诉命令 此文件包含测试函数。使用 `go test`可以进行测试。
+
+- 在 greetings 目录中，创建名为 greetings_test.go 的文件
+- 在 greetings_test.go 中，粘贴以下代码并保存文件
+
+```Go
+//greetings_test.go
+
+package greetings
+
+import (
+    "testing"
+    "regexp"
+)
+
+//在与要测试的代码相同的包中实现测试函数。
+
+// TestHelloName调用函数， 传递函数应具有的值 能够返回有效的响应消息。
+func TestHelloName(t *testing.T) {
+    name := "Gladys"
+    want := regexp.MustCompile(`\b`+name+`\b`)
+    msg, err := Hello("Gladys")
+    if !want.MatchString(msg) || err != nil {
+        t.Fatalf(`Hello("Gladys") = %q, %v, want match for %#q, nil`, msg, err, want)
+    }
+}
+
+// TestHelloEmpty调用函数 替换为空字符串。该测试旨在确认错误处理有效。
+func TestHelloEmpty(t *testing.T) {
+    msg, err := Hello("")
+    // 如果调用返回非空字符串或错误，则使用参数的方法将消息打印到控制台并结束执行。
+    if msg != "" || err == nil {
+        t.Fatalf(`Hello("") = %q, %v, want "", error`, msg, err)
+    }
+}
+```
+
+测试应通过:
+
+```Bash
+PS D:\projectCode\book\go-tutorial\code\hello\greetings> go test
+PASS
+ok      example.com/greetings   0.126s
+PS D:\projectCode\book\go-tutorial\code\hello\greetings> go test -v
+=== RUN   TestHelloName
+--- PASS: TestHelloName (0.00s) 
+=== RUN   TestHelloEmpty        
+--- PASS: TestHelloEmpty (0.00s)
+PASS
+ok      example.com/greetings   0.052s
+```
+
+故意编写错误函数
+
+```Go
+// 在 greetings/greetings.go 中，粘贴以下代码来代替 Hello 函数。
+func Hello(name string) (string, error) {
+    // If no name was given, return an error with a message.
+    if name == "" {
+        return name, errors.New("empty name")
+    }
+    // Create a message using a random format.
+    // message := fmt.Sprintf(randomFormat(), name)
+    message := fmt.Sprint(randomFormat())
+    return message, nil
+}
+```
+
+测试应不通过:
+
+```Bash
+PS D:\projectCode\book\go-tutorial\code\hello\greetings> go test   
+--- FAIL: TestHelloName (0.00s)
+    greetings_test.go:16: Hello("Gladys") = "Great to see you, %v!", <nil>, want match for `\bGladys\b`, nil
+FAIL
+exit status 1
+FAIL    example.com/greetings   0.037s
+PS D:\projectCode\book\go-tutorial\code\hello\greetings> go test -v
+=== RUN   TestHelloName
+    greetings_test.go:16: Hello("Gladys") = "Hail, %v! Well met!", <nil>, want match for `\bGladys\b`, nil
+--- FAIL: TestHelloName (0.00s)
+=== RUN   TestHelloEmpty
+--- PASS: TestHelloEmpty (0.00s)
+FAIL
+exit status 1
+FAIL    example.com/greetings   0.054s
+```
+
+## 编译应用程序
+
+```Bash
+PS D:\projectCode\book\go-tutorial\code\hello> cd .\hello\
+
+# 编译
+PS D:\projectCode\book\go-tutorial\code\hello\hello> go build
+
+# 执行编译文件
+PS D:\projectCode\book\go-tutorial\code\hello\hello> .\hello.exe
+map[Darrin:Hi, %v. Welcome! Gladys:Great to see you, %v! Samantha:Hail, %v! Well met!]      
+
+# 发现安装路径
+PS D:\projectCode\book\go-tutorial\code\hello\hello> go list -f '{{.Target}}'
+C:\Users\lushi\go\bin\hello.exe # 可以把C:\Users\lushi\go\bin\放环境中，完成安装
+```
 
