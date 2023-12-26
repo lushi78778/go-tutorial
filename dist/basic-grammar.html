@@ -1,0 +1,529 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-26T21:54:09.7673064"><meta name="build-number" content="${buildNumber}">       <title>Basic Grammar | Go-tutorial</title><script id="virtual-toc-data" type="application/json">[{"id":"832cf162_170","level":0,"title":"前节回顾","anchor":"#832cf162_170"},{"id":"832cf162_206","level":0,"title":"数据类型","anchor":"#832cf162_206"},{"id":"832cf162_221","level":0,"title":"数字类型","anchor":"#832cf162_221"},{"id":"832cf162_246","level":0,"title":"基础语法","anchor":"#832cf162_246"},{"id":"832cf162_248","level":0,"title":"值类型和引用类型","anchor":"#832cf162_248"},{"id":"832cf162_271","level":0,"title":"变量赋值简短形式，使用 :\u003d 赋值操作符","anchor":"#832cf162_271"},{"id":"832cf162_285","level":0,"title":"运算符","anchor":"#832cf162_285"},{"id":"832cf162_287","level":0,"title":"语句","anchor":"#832cf162_287"},{"id":"832cf162_293","level":0,"title":"函数","anchor":"#832cf162_293"},{"id":"832cf162_298","level":0,"title":"变量","anchor":"#832cf162_298"},{"id":"832cf162_303","level":0,"title":"数据结构","anchor":"#832cf162_303"},{"id":"832cf162_305","level":0,"title":"递归函数","anchor":"#832cf162_305"},{"id":"832cf162_308","level":0,"title":"类型转换","anchor":"#832cf162_308"},{"id":"832cf162_314","level":0,"title":"接口","anchor":"#832cf162_314"},{"id":"goroutine","level":0,"title":"goroutine","anchor":"#goroutine"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Basic Grammar | Go-tutorial"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Go-tutorial Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="go-tutorialbasic-grammar.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Basic Grammar | Go-tutorial"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "go-tutorialbasic-grammar.html#webpage", "url": "go-tutorialbasic-grammar.html", "name": "Basic Grammar | Go-tutorial", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "go-tutorial/#website", "url": "go-tutorial/", "name": "Go-tutorial Help" }</script><!-- End Schema.org --></head>      <body data-id="Basic-Grammar" data-main-title="Basic Grammar" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs=""  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Go-tutorial  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Basic-Grammar"   id="Basic-Grammar.md">Basic Grammar</h1>  <p id="832cf162_167">在学习上节时，可能有些概念对初学者是难以理解的，在这里我们专门新开一节来介绍一些基础语法与数据结构。</p><p id="832cf162_168">这些内容基本上看看就可以了，有些该概念似乎是不好理解的，但这不影响读者跳过本篇继续向下学习。</p><p id="832cf162_169">注意我们的目的是使用，而不是理论精通，建议用时半小时，回过头来多看是必要的！</p><section class="chapter"><h2 id="832cf162_170" data-toc="832cf162_170"   >前节回顾</h2><p id="832cf162_171">在上一节中，我们简单的学习了 Go 语言的一些基本知识，现在我们来简单整理一下。</p><ol class="list _decimal" id="832cf162_172" type="1"><li class="list__item" id="832cf162_173"><p>Go 语言的基础组成有以下几个部分</p></li></ol><ul class="list _ul" id="832cf162_174"><li class="list__item" id="832cf162_175"><p>包声明</p></li><li class="list__item" id="832cf162_176"><p>引入包</p></li><li class="list__item" id="832cf162_177"><p>函数</p></li><li class="list__item" id="832cf162_178"><p>变量</p></li><li class="list__item" id="832cf162_179"><p>语句 &amp; 表达式</p></li><li class="list__item" id="832cf162_180"><p>注释</p></li></ul><ol class="list _decimal" id="832cf162_181" type="1" start="2"><li class="list__item" id="832cf162_182"><p>基本概念</p></li></ol><ul class="list _ul" id="832cf162_183"><li class="list__item" id="832cf162_184"><p>在 Go 程序中，一行代表一个语句结束。每个语句不需要像 C 家族中的其它语言一样以分号 ; 结尾，因为这些工作都将由 Go 编译器自动完成。</p></li><li class="list__item" id="832cf162_185"><p>注释不会被编译，每一个包应该有相关注释。 // 开头的单行注释。多行注释也叫块注释，均已以 /* 开头，并以 */ 结尾。</p></li><li class="list__item" id="832cf162_186"><p>标识符用来命名变量、类型等程序实体。第一个字符必须是字母或下划线而不能是数字。不能用Go 语言的关键字。</p></li><li class="list__item" id="832cf162_187"><p>Go 语言的字符串连接可以通过 + 实现</p></li></ul><ol class="list _decimal" id="832cf162_188" type="1" start="3"><li class="list__item" id="832cf162_189"><p>25 个关键字或保留字</p></li></ol><p id="832cf162_190">| break | default | func | interface | select | <br> | case | defer | go | map | struct | <br> | chan | else | goto | package | switch | <br> | const | fallthrough | if | range | type | <br> | continue | for | import | return | var |</p><ol class="list _decimal" id="832cf162_195" type="1" start="4"><li class="list__item" id="832cf162_196"><p>36 个预定义标识符：</p></li></ol><p id="832cf162_197">| append | bool | byte | cap | close | complex | complex64 | complex128 | uint16 | <br> | copy | false | float32 | float64 | imag | int | int8 | int16 | uint32 | <br> | int32 | int64 | iota | len | make | new | nil | panic | uint64 | <br> | print | println | real | recover | string | true | uint | uint8 | uintptr |</p><ol class="list _decimal" id="832cf162_201" type="1" start="5"><li class="list__item" id="832cf162_202"><p>惯常操作</p></li></ol><div class="code-block" data-lang="bash"         >
+# 初始化项目
+go mod init hello      
+
+# 定义系统                                         
+$env:GOOS=&quot;windows&quot;
+</div><div class="code-block" data-lang="go"         >
+package main // 声明一个主包（包是对函数进行分组的一种方式，它由同一目录中的所有文件组成）
+
+import &quot;fmt&quot;  // 导入fmt包，其中包含格式化文本的功能，包括打印到控制台。此程序包是安装Go时获得的标准库程序包之一。
+
+func main() { 
+    //实现一个主要功能，将消息打印到控制台。当您运行主程序包时，默认情况下会执行一个主函数。
+    fmt.Println(&quot;Hello, World!&quot;)
+}
+</div><div class="code-block" data-lang="bash"         >
+# 运行 hello.go
+go run hello.go
+
+# 添加新的模块要求到 go.sum（同步模块的依赖项）
+go mod tidy
+
+# &lt;prefix&gt;/&lt;descriptive-text&gt; eg:github.com/&lt;project-name&gt;
+go mod init example.com/greetings 
+
+# 初始化
+go mod init example.com/greetings
+
+# 指定本项目的依赖使用本地代码代替
+go mod edit -replace example.com/greetings=../greetings
+
+# 以 `_test.go` 结尾的文件名会告诉命令 此文件包含测试函数。
+go test
+
+# 详细测试报告
+go test -v
+
+# 编译
+go build
+
+# 发现安装路径
+go list -f '{{.Target}}'
+</div></section><section class="chapter"><h2 id="832cf162_206" data-toc="832cf162_206"   >数据类型</h2><ul class="list _ul" id="832cf162_207"><li class="list__item" id="832cf162_208"><p>布尔型：只可以是常量 true 或者 false。</p></li><li class="list__item" id="832cf162_209"><p>数字类型 整型 int 和浮点型 float32、float64，Go 语言支持整型和浮点型数字，并且支持复数，其中位的运算采用补码。</p></li><li class="list__item" id="832cf162_210"><p>字符串类型:字符串就是一串固定长度的字符连接起来的字符序列。Go 的字符串是由单个字节连接起来的。Go 语言的字符串的字节使用 UTF-8 编码标识 Unicode 文本。</p></li><li class="list__item" id="832cf162_211"><p>派生类型 </p><ul class="list _ul" id="832cf162_212"><li class="list__item" id="832cf162_213"><p>指针类型（Pointer）</p></li><li class="list__item" id="832cf162_214"><p>数组类型</p></li><li class="list__item" id="832cf162_215"><p>结构化类型(struct)</p></li><li class="list__item" id="832cf162_216"><p>Channel 类型</p></li><li class="list__item" id="832cf162_217"><p>函数类型</p></li><li class="list__item" id="832cf162_218"><p>切片类型</p></li><li class="list__item" id="832cf162_219"><p>接口类型（interface）</p></li><li class="list__item" id="832cf162_220"><p>Map 类型</p></li></ul></li></ul></section><section class="chapter"><h2 id="832cf162_221" data-toc="832cf162_221"   >数字类型</h2><ul class="list _ul" id="832cf162_222"><li class="list__item" id="832cf162_223"><p>基于架构的类型 </p><ul class="list _ul" id="832cf162_224"><li class="list__item" id="832cf162_225"><p>uint8：无符号 8 位整型 (0 到 255)</p></li><li class="list__item" id="832cf162_226"><p>uint16：无符号 16 位整型 (0 到 65535)</p></li><li class="list__item" id="832cf162_227"><p>uint32：无符号 32 位整型 (0 到 4294967295)</p></li><li class="list__item" id="832cf162_228"><p>uint64：无符号 64 位整型 (0 到 18446744073709551615)</p></li><li class="list__item" id="832cf162_229"><p>int8：有符号 8 位整型 (-128 到 127)</p></li><li class="list__item" id="832cf162_230"><p>int16：有符号 16 位整型 (-32768 到 32767)</p></li><li class="list__item" id="832cf162_231"><p>int32：有符号 32 位整型 (-2147483648 到 2147483647)</p></li><li class="list__item" id="832cf162_232"><p>int64：有符号 64 位整型 (-9223372036854775808 到 9223372036854775807)</p></li></ul></li><li class="list__item" id="832cf162_233"><p>浮点型 </p><ul class="list _ul" id="832cf162_234"><li class="list__item" id="832cf162_235"><p>float32：IEEE-754 32位浮点型数</p></li><li class="list__item" id="832cf162_236"><p>float64：IEEE-754 64位浮点型数</p></li><li class="list__item" id="832cf162_237"><p>complex64：32 位实数和虚数</p></li><li class="list__item" id="832cf162_238"><p>complex128：64 位实数和虚数</p></li></ul></li><li class="list__item" id="832cf162_239"><p>其他数字类型 </p><ul class="list _ul" id="832cf162_240"><li class="list__item" id="832cf162_241"><p>byte：类似 uint8</p></li><li class="list__item" id="832cf162_242"><p>rune：类似 int32</p></li><li class="list__item" id="832cf162_243"><p>uint：32 或 64 位</p></li><li class="list__item" id="832cf162_244"><p>int：与 uint 一样大小</p></li><li class="list__item" id="832cf162_245"><p>uintptr：无符号整型，用于存放一个指针</p></li></ul></li></ul></section><section class="chapter"><h2 id="832cf162_246" data-toc="832cf162_246"   >基础语法</h2><div class="code-block" data-lang="go"         >
+// 1 指定变量类型，如果没有初始化，则变量默认为零值
+
+// 声明一个变量并初始化
+var a = &quot;lushi&quot;
+
+// 没有初始化就为零值
+var b int
+
+// bool 零值为 false
+var c bool
+
+/**
+  *数值类型（包括complex64/128）为 0
+  *布尔类型为 false
+  *字符串为 &quot;&quot;（空字符串）
+  *以下几种类型为 nil
+  */
+var a *int
+var a []int
+var a map[string] int
+var a chan int
+var a func(string) int
+var a error // error 是接口
+
+// 2 根据值自行判定变量类型(类型推断)
+var d = true
+
+// 如果变量已经使用 var 声明过了，再使用 := 声明变量，就产生编译错误
+e := 1 // 此时不会产生编译错误，因为有声明新的变量，因为 := 是一个声明语句
+// 上面这种不带声明格式的只能在函数体中出现
+
+
+// 显式类型定义常量
+const b string = &quot;abc&quot;
+
+// 隐式类型定义常量
+const b = &quot;abc&quot;
+
+// 多重赋值
+const a, b, c = 1, false, &quot;str&quot; 
+
+// 常量还可以用作枚举
+const (
+    Unknown = 0
+    Female = 1
+    Male = 2
+)
+
+// iota，特殊常量，可以认为是一个可以被编译器修改的常量。
+const (
+    a = iota // ota 在 const关键字出现时将被重置为 0
+    b = iota //const 中每新增一行常量声明将使 iota 计数一次(iota 可理解为 const 语句块中的行索引)。
+    c = iota
+)
+
+// 第一个 iota 等于 0，每当 iota 在新的一行被使用时，它的值都会自动加 1；所以 a=0, b=1, c=2 可以简写为如下形式
+const (
+    a = iota
+    b
+    c
+)
+
+const (
+    //0 1 2 ha ha 100 100 7 8
+    a = iota   // 0
+    b          // 1
+    c          // 2
+    d = &quot;ha&quot;   // 独立值，iota += 1
+    e          // &quot;ha&quot;   iota += 1
+    f = 100    // iota +=1
+    g          // 100  iota +=1
+    h = iota   // 7,恢复计数
+    i          // 8
+)
+</div></section><section class="chapter"><h2 id="832cf162_248" data-toc="832cf162_248"   >值类型和引用类型</h2><ul class="list _ul" id="832cf162_249"><li class="list__item" id="832cf162_250"><p>所有像 <code class="code" id="832cf162_251">int</code>、 <code class="code" id="832cf162_252">float</code>、 <code class="code" id="832cf162_253">bool</code> 和 <code class="code" id="832cf162_254">string</code> 这些基本类型都属于<code class="code" id="832cf162_255">值类型</code> ，使用这些类型的变量直接指向存在内存中的值</p></li><li class="list__item" id="832cf162_256"><p>当使用等号 = 将一个变量的值赋值给另一个变量时，如： <code class="code" id="832cf162_257">j = i</code> ，实际上是在内存中将 i 的值进行了<code class="code" id="832cf162_258">拷贝</code></p></li><li class="list__item" id="832cf162_259"><p>通过 <code class="code" id="832cf162_260">&amp;i</code> 来获取变量 i 的内存地址，例如：0xf840000040（每次的地址都可能不一样）</p></li><li class="list__item" id="832cf162_261"><p>更复杂的数据通常会需要使用多个字，这些数据一般使用<code class="code" id="832cf162_262">引用类型</code>保存</p></li><li class="list__item" id="832cf162_263"><p>一个<code class="code" id="832cf162_264">引用类型</code>的变量 r1 存储的是 r1 的<code class="code" id="832cf162_265">值所在的内存地址（数字）</code> ，或<code class="code" id="832cf162_266">内存地址中第一个字所在的位置</code> 。(指针)</p></li><li class="list__item" id="832cf162_267"><p>当使用赋值语句<code class="code" id="832cf162_268">r2 = r1</code> 时，只有<code class="code" id="832cf162_269">引用（地址）</code>被复制。如果 r1 的值被改变了，那么这个值的<code class="code" id="832cf162_270">所有引用都会指向被修改后的内容</code></p></li></ul></section><section class="chapter"><h2 id="832cf162_271" data-toc="832cf162_271"   >变量赋值简短形式，使用 := 赋值操作符</h2><ul class="list _ul" id="832cf162_272"><li class="list__item" id="832cf162_273"><p>使用变量的首选形式，但是它只能被用在函数体内，而不可以用于全局变量的声明与赋值。</p></li><li class="list__item" id="832cf162_274"><p>使用操作符 := 可以高效地创建一个新的变量，称之为<code class="code" id="832cf162_275">初始化声明</code>。</p></li><li class="list__item" id="832cf162_276"><p>在相同的代码块中，我们不可以再次对于相同名称的变量使用初始化声明</p></li><li class="list__item" id="832cf162_277"><p>声明了一个<code class="code" id="832cf162_278">局部变量</code>却没有在相同的代码块中使用它，得到编译错误</p></li><li class="list__item" id="832cf162_279"><p><code class="code" id="832cf162_280">全局变量</code>是允许声明但不使用的</p></li><li class="list__item" id="832cf162_281"><p>多变量可以在同一行进行赋值（这被称为 并行 或 同时 赋值）</p></li><li class="list__item" id="832cf162_282"><p>空白标识符 _ 可被用于抛弃值，如值 5 在： <span class="emphasis" id="832cf162_283">, b = 5, 7 中被抛弃。（</span> 实际上是一个只写变量，你不能得到它的值）</p></li><li class="list__item" id="832cf162_284"><p>并行赋值用于当一个函数返回多个返回值时，比如这里的 val 和错误 err 是通过调用 Func1 函数同时得到：val, err = Func1(var1)</p></li></ul></section><section class="chapter"><h2 id="832cf162_285" data-toc="832cf162_285"   >运算符</h2><div class="code-block" data-lang="none"         >
+算术运算符
+假定 A 值为 10，B 值为 20。
++	相加	A + B 输出结果 30
+-	相减	A - B 输出结果 -10
+*	相乘	A * B 输出结果 200
+/	相除	B / A 输出结果 2
+%	求余	B % A 输出结果 0
+++	自增	A++ 输出结果 11
+--	自减	A-- 输出结果 9
+
+关系运算符
+假定 A 值为 10，B 值为 20。
+==	检查两个值是否相等，如果相等返回 True 否则返回 False。	(A == B) 为 False
+!=	检查两个值是否不相等，如果不相等返回 True 否则返回 False。	(A != B) 为 True
+&gt;	检查左边值是否大于右边值，如果是返回 True 否则返回 False。	(A &gt; B) 为 False
+&lt;	检查左边值是否小于右边值，如果是返回 True 否则返回 False。	(A &lt; B) 为 True
+&gt;=	检查左边值是否大于等于右边值，如果是返回 True 否则返回 False。	(A &gt;= B) 为 False
+&lt;=	检查左边值是否小于等于右边值，如果是返回 True 否则返回 False。	(A &lt;= B) 为 True
+
+逻辑运算符
+假定 A 值为 True，B 值为 False。
+&amp;&amp;	逻辑 AND 运算符。 如果两边的操作数都是 True，则条件 True，否则为 False。	(A &amp;&amp; B) 为 False
+||	逻辑 OR 运算符。 如果两边的操作数有一个 True，则条件 True，否则为 False。	(A || B) 为 True
+!	逻辑 NOT 运算符。 如果条件为 True，则逻辑 NOT 条件 False，否则为 True。   !(A &amp;&amp; B) 为 True
+
+位运算符
+假定 A 为60，B 为13
+&amp;	按位与运算符&quot;&amp;&quot;是双目运算符。 其功能是参与运算的两数各对应的二进位相与。	(A &amp; B) 结果为 12, 二进制为 0000 1100
+|	按位或运算符&quot;|&quot;是双目运算符。 其功能是参与运算的两数各对应的二进位相或	(A | B) 结果为 61, 二进制为 0011 1101
+^	按位异或运算符&quot;^&quot;是双目运算符。 其功能是参与运算的两数各对应的二进位相异或，当两对应的二进位相异时，结果为1。	(A ^ B) 结果为 49, 二进制为 0011 0001
+&lt;&lt;	左移运算符&quot;&lt;&lt;&quot;是双目运算符。左移n位就是乘以2的n次方。 其功能把&quot;&lt;&lt;&quot;左边的运算数的各二进位全部左移若干位，由&quot;&lt;&lt;&quot;右边的数指定移动的位数，高位丢弃，低位补0。	A &lt;&lt; 2 结果为 240 ，二进制为 1111 0000
+&gt;&gt;	右移运算符&quot;&gt;&gt;&quot;是双目运算符。右移n位就是除以2的n次方。 其功能是把&quot;&gt;&gt;&quot;左边的运算数的各二进位全部右移若干位，&quot;&gt;&gt;&quot;右边的数指定移动的位数。	A &gt;&gt; 2 结果为 15 ，二进制为 0000 1111
+
+赋值运算符
+=	简单的赋值运算符，将一个表达式的值赋给一个左值	C = A + B 将 A + B 表达式结果赋值给 C
++=	相加后再赋值	C += A 等于 C = C + A
+-=	相减后再赋值	C -= A 等于 C = C - A
+*=	相乘后再赋值	C *= A 等于 C = C * A
+/=	相除后再赋值	C /= A 等于 C = C / A
+%=	求余后再赋值	C %= A 等于 C = C % A
+&lt;&lt;=	左移后赋值	C &lt;&lt;= 2 等于 C = C &lt;&lt; 2
+&gt;&gt;=	右移后赋值	C &gt;&gt;= 2 等于 C = C &gt;&gt; 2
+&amp;=	按位与后赋值	C &amp;= 2 等于 C = C &amp; 2
+^=	按位异或后赋值	C ^= 2 等于 C = C ^ 2
+|=	按位或后赋值	C |= 2 等于 C = C | 2
+
+其他运算符
+&amp;	返回变量存储地址	&amp;a; 将给出变量的实际地址。
+*	指针变量。	*a; 是一个指针变量
+
+运算符优先级
+由上至下代表优先级由高到低,可以通过使用括号来临时提升某个表达式的整体运算优先级
+5	* / % &lt;&lt; &gt;&gt; &amp; &amp;^
+4	+ - | ^
+3	== != &lt; &lt;= &gt; &gt;=
+2	&amp;&amp;
+1	||
+</div></section><section class="chapter"><h2 id="832cf162_287" data-toc="832cf162_287"   >语句</h2><section class="chapter"><h3 id="832cf162_288" data-toc="832cf162_288"   >条件判断</h3><div class="code-block" data-lang="go"         >
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+
+   /* 局部变量定义 */
+   var a int = 100
+   var b int = 200
+   
+   /* 判断布尔表达式 */
+   if a &lt; 20 {
+       /* 如果条件为 true 则执行以下语句 */
+       fmt.Printf(&quot;a 小于 20\n&quot; )
+   } else {
+       /* 如果条件为 false 则执行以下语句 */
+       fmt.Printf(&quot;a 不小于 20\n&quot; )
+       
+       // 嵌套
+       if b == 200 {
+          /* if 条件语句为 true 执行 */
+          fmt.Printf(&quot;a 的值为 100 ， b 的值为 200\n&quot; )
+       }
+   }
+   fmt.Printf(&quot;a 的值为 : %d\n&quot;, a)
+
+
+   /* 定义局部变量 */
+   var grade string = &quot;B&quot;
+   var marks int = 90
+
+   switch marks {
+      case 90: grade = &quot;A&quot;
+      case 80: grade = &quot;B&quot;
+      case 50,60,70 : grade = &quot;C&quot;
+      default: grade = &quot;D&quot;  
+   }
+
+   switch {
+      case grade == &quot;A&quot; :
+         fmt.Printf(&quot;优秀!\n&quot; )    
+      case grade == &quot;B&quot;, grade == &quot;C&quot; :
+         fmt.Printf(&quot;良好\n&quot; )      
+      case grade == &quot;D&quot; :
+         fmt.Printf(&quot;及格\n&quot; )      
+      case grade == &quot;F&quot;:
+         fmt.Printf(&quot;不及格\n&quot; )
+      default:
+         fmt.Printf(&quot;差\n&quot; );
+   }
+}
+</div></section><section class="chapter"><h3 id="select" data-toc="select"   >select 语句</h3><div class="code-block" data-lang="go"         >
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+  // 定义两个通道  c1 和 c2
+  ch1 := make(chan string)
+  ch2 := make(chan string)
+
+  // 启动两个 goroutine，分别从两个通道中获取数据
+  go func() {
+    for {
+      ch1 &lt;- &quot;from 1&quot;
+    }
+  }()
+  go func() {
+    for {
+      ch2 &lt;- &quot;from 2&quot;
+    }
+  }()
+
+  // 使用 select 语句非阻塞地从两个通道中获取数据
+  for {
+    select 语句等待两个通道的数据。如果接收到 c1 的数据，就会打印 &quot;from 1&quot;；如果接收到 c2 的数据，就会打印 &quot;from 2&quot;。
+    select {
+    case msg1 := &lt;-ch1:
+      fmt.Println(msg1)
+    case msg2 := &lt;-ch2:
+      fmt.Println(msg2)
+    default:
+      // 如果两个通道都没有可用的数据，则执行这里的语句
+      fmt.Println(&quot;no message received&quot;)
+    }
+  }
+}
+</div></section><section class="chapter"><h3 id="832cf162_291" data-toc="832cf162_291"   >循环</h3><div class="code-block" data-lang="go"         >
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+
+   /* ===================================================== */  
+   /* 定义局部变量 */
+   var i, j int
+
+   for i=2; i &lt; 100; i++ {
+      for j=2; j &lt;= (i/j); j++ {
+         if(i%j==0) {
+            break; // 如果发现因子，则不是素数
+         }
+      }
+      if(j &gt; (i/j)) {
+         fmt.Printf(&quot;%d  是素数\n&quot;, i);
+      }
+   }  
+   
+   /* ===================================================== */  
+   //0 1 2 3 4
+   for i := 0; i &lt; 10; i++ {
+      if i == 5 {
+          break // 当 i 等于 5 时跳出循环
+      }
+      fmt.Println(i)
+   }
+   
+   /* ===================================================== */  
+   /* 定义局部变量 */
+   var a int = 10
+
+   /* for 循环 */
+   for a &lt; 20 {
+      if a == 15 {
+         /* 跳过此次循环 */
+         a = a + 1;
+         continue;
+      }
+      fmt.Printf(&quot;a 的值为 : %d\n&quot;, a);
+      a++;    
+   }  
+   
+   /* ===================================================== */  
+   /* 定义局部变量 */
+   var a int = 10
+
+   /* 循环 */
+   LOOP: for a &lt; 20 {
+      if a == 15 {
+         /* 跳过迭代 */
+         a = a + 1
+         goto LOOP
+      }
+      fmt.Printf(&quot;a的值为 : %d\n&quot;, a)
+      a++    
+   }  
+}
+
+</div></section></section><section class="chapter"><h2 id="832cf162_293" data-toc="832cf162_293"   >函数</h2><ul class="list _ul" id="832cf162_294"><li class="list__item" id="832cf162_295"><p>默认情况下，Go 语言使用的是值传递，即在调用过程中不会影响到实际参数。</p></li><li class="list__item" id="832cf162_296"><p>函数可以作为实参</p></li></ul><div class="code-block" data-lang="go"         >
+package main
+
+import &quot;fmt&quot;
+
+func swap(x, y string) (string, string) {
+   return y, x
+}
+
+func main() {
+   a, b := swap(&quot;Google&quot;, &quot;Baidu&quot;)
+   fmt.Println(a, b)
+}
+
+//创建了函数 getSequence() ，返回另外一个函数。该函数的目的是在闭包中递增 i 变量(匿名函数)
+func getSequence() func() int {
+   i:=0
+   return func() int {
+      i+=1
+     return i  
+   }
+}
+
+// 方法
+/* 定义结构体 */
+type Circle struct {
+  radius float64
+}
+//该 method 属于 Circle 类型对象中的方法
+func (c Circle) getArea() float64 {
+  //c.radius 即为 Circle 类型对象中的属性
+  return 3.14 * c.radius * c.radius
+}
+</div></section><section class="chapter"><h2 id="832cf162_298" data-toc="832cf162_298"   >变量</h2><ul class="list _ul" id="832cf162_299"><li class="list__item" id="832cf162_300"><p>函数内定义的变量称为局部变量</p></li><li class="list__item" id="832cf162_301"><p>函数外定义的变量称为全局变量</p></li><li class="list__item" id="832cf162_302"><p>函数定义中的变量称为形式参数</p></li></ul></section><section class="chapter"><h2 id="832cf162_303" data-toc="832cf162_303"   >数据结构</h2><div class="code-block" data-lang="go"         >
+
+// 以下定义了数组 balance 长度为 10 类型为 float32：
+var balance [10]float32
+// 初始化列表来初始化数组
+var numbers = [5]int{1, 2, 3, 4, 5}
+// 使用 := 简短声明语法来声明和初始化数组
+numbers := [5]int{1, 2, 3, 4, 5}
+//读取了数组 balance 第 10 个元素的值
+var salary float32 = balance[9]
+
+//nil 指针称为空指针。nil在概念上和其它语言的null、None、nil、NULL一样，都指代零值或空值。
+
+var a int= 20   /* 声明实际变量 */
+var ip *int        /* 声明指针变量 */
+ip = &amp;a  /* 指针变量的存储地址 */
+fmt.Printf(&quot;a 变量的地址是: %x\n&quot;, &amp;a  )
+/* 指针变量的存储地址 */
+fmt.Printf(&quot;ip 变量储存的指针地址: %x\n&quot;, ip )
+/* 使用指针访问值 */
+fmt.Printf(&quot;*ip 变量的值: %d\n&quot;, *ip )
+
+// 定义结构体
+type Books struct {
+   title string
+   author string
+   subject string
+   book_id int
+}
+fmt.Println(Books{title: &quot;Go 语言&quot;, author: &quot;lushi&quot;, subject: &quot;Go 教程&quot;, book_id: 356})
+
+// Go 语言切片是对数组的抽象(动态数组)
+var numbers = make([]int,3,5)
+printSlice(numbers) //len=3 cap=5 slice=[0 0 0]
+func printSlice(x []int){
+   // 切片是可索引的，并且可以由 len() 方法获取长度。
+   // 切片提供了计算容量的方法 cap() 可以测量切片最长可以达到多少。
+   fmt.Printf(&quot;len=%d cap=%d slice=%v\n&quot;,len(x),cap(x),x)
+}
+
+// 可以通过设置下限及上限来设置截取切片 [lower-bound:upper-bound]
+/* 创建切片 */
+numbers := []int{0,1,2,3,4,5,6,7,8}  
+/* 打印子切片从索引1(包含) 到索引4(不包含)*/
+fmt.Println(&quot;numbers[1:4] ==&quot;, numbers[1:4])
+/* 默认下限为 0*/
+fmt.Println(&quot;numbers[:3] ==&quot;, numbers[:3])
+/* 默认上限为 len(s)*/
+fmt.Println(&quot;numbers[4:] ==&quot;, numbers[4:])
+
+/* 允许追加空切片 */
+numbers = append(numbers, 0)
+/* 向切片添加一个元素 */
+numbers = append(numbers, 1)
+/* 同时添加多个元素 */
+numbers = append(numbers, 2,3,4)
+/* 创建切片 numbers1 是之前切片的两倍容量*/
+numbers1 := make([]int, len(numbers), (cap(numbers))*2)
+/* 拷贝 numbers 的内容到 numbers1 */
+copy(numbers1,numbers)
+
+// 范围  range 关键字用于 for 循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素。
+for key, value := range oldMap {
+    newMap[key] = value
+}
+var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+for i, v := range pow {
+  fmt.Printf(&quot;2**%d = %d\n&quot;, i, v)
+}
+
+// Map 是一种无序的键值对的集合
+// 使用字面量创建 Map
+m := map[string]int{
+    &quot;apple&quot;: 1,
+    &quot;banana&quot;: 2,
+    &quot;orange&quot;: 3,
+}
+// 获取键值对
+v1 := m[&quot;apple&quot;]
+v2, ok := m[&quot;pear&quot;]  // 如果键不存在，ok 的值为 false，v2 的值为该类型的零值
+// 修改键值对
+m[&quot;apple&quot;] = 5
+// 获取 Map 的长度
+len := len(m)
+// 遍历 Map
+for k, v := range m {
+    fmt.Printf(&quot;key=%s, value=%d\n&quot;, k, v)
+}
+// 删除键值对
+delete(m, &quot;banana&quot;)
+</div></section><section class="chapter"><h2 id="832cf162_305" data-toc="832cf162_305"   >递归函数</h2><p id="832cf162_306">斐波那契数列</p><div class="code-block" data-lang="go"         >
+package main
+
+import &quot;fmt&quot;
+
+func fibonacci(n int) int {
+  if n &lt; 2 {
+   return n
+  }
+  return fibonacci(n-2) + fibonacci(n-1)
+}
+
+func main() {
+    var i int
+    for i = 0; i &lt; 10; i++ {
+       fmt.Printf(&quot;%d\t&quot;, fibonacci(i))
+    }
+}
+</div></section><section class="chapter"><h2 id="832cf162_308" data-toc="832cf162_308"   >类型转换</h2><ul class="list _ul" id="832cf162_309"><li class="list__item" id="832cf162_310"><p>不支持隐式转换类型</p></li><li class="list__item" id="832cf162_311"><p>类型转换用于将一个接口类型的值转换为另一个接口类型，其语法为： <code class="code" id="832cf162_312">T(value)</code></p></li></ul><div class="code-block" data-lang="go"         >
+var a int = 10
+var b float64 = float64(a)
+
+var str string = &quot;10&quot;
+var num int
+num, _ = strconv.Atoi(str) //strconv.Atoi 函数返回两个值，第一个是转换后的整型值，第二个是可能发生的错误，我们可以使用空白标识符 _ 来忽略这个错误
+</div></section><section class="chapter"><h2 id="832cf162_314" data-toc="832cf162_314"   >接口</h2><div class="code-block" data-lang="go"         >
+package main
+
+import (
+    &quot;fmt&quot;
+)
+
+type Phone interface {
+    call() //定义了一个接口 Phone，接口里面有一个方法 call()
+}
+
+type NokiaPhone struct {
+}
+
+func (nokiaPhone NokiaPhone) call() {
+    fmt.Println(&quot;I am Nokia, I can call you!&quot;)
+}
+
+type IPhone struct {
+}
+
+func (iPhone IPhone) call() {
+    fmt.Println(&quot;I am iPhone, I can call you!&quot;)
+}
+
+func main() {
+    // 面定义了一个 Phone 类型变量，并分别为之赋值为 NokiaPhone 和 IPhone。然后调用 call() 方法
+    var phone Phone
+
+    phone = new(NokiaPhone)
+    phone.call()
+
+    phone = new(IPhone)
+    phone.call()
+
+}
+</div></section><section class="chapter"><h2 id="goroutine" data-toc="goroutine"   >goroutine</h2><p id="832cf162_316">详细说明：https://www.yuque.com/lushi78778/blog/bluuec</p><div class="code-block" data-lang="go"         >
+package main
+
+import (
+        &quot;fmt&quot;
+        &quot;time&quot;
+)
+
+func say(s string) {
+        for i := 0; i &lt; 5; i++ {
+                time.Sleep(100 * time.Millisecond)
+                fmt.Println(s)
+        }
+}
+
+func main() {
+        go say(&quot;world&quot;)
+        say(&quot;hello&quot;)
+}
+</div></section><div class="last-modified"> Last modified: 26 十二月 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="hello-go.html">Hello Go</a>   </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>
