@@ -1,9 +1,8 @@
 # Dockerfile
 
-# Set default values for variables
-ENV DOCKER_VERSION=232.10275 \
-    INSTANCE=Writerside/go-tutorial \
-    ARTIFACT=webHelpGO-TUTORIAL2-all.zip
+DOCKER_VERSION=232.10275
+INSTANCE=Writerside/go-tutorial
+ARTIFACT=webHelpGO-TUTORIAL2-all.zip
 
 # Build stage
 FROM registry.jetbrains.team/p/writerside/builder/writerside-builder:${DOCKER_VERSION} as build
