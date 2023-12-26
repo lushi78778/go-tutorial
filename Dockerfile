@@ -4,8 +4,6 @@
 # Build stage
 FROM registry.jetbrains.team/p/writerside/builder/writerside-builder:232.10275 as build
 WORKDIR /app
-ENV DISPLAY=:99
-RUN Xvfb :99 &
 COPY . .
 RUN /opt/builder/bin/idea.sh helpbuilderinspect -source-dir . -product Writerside/go-tutorial --runner gitlab -output-dir public/ || true
 RUN test -e public/webHelpGO-TUTORIAL2-all.zip
