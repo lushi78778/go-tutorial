@@ -10,4 +10,16 @@
         <description>Created after removal of "This is the first topic" from Help Instance</description>
         <accepts>Default-topic.html</accepts>
     </rule>
+    <rule id="238eb77a">
+        <description>Created after removal of "Multi-module" from Go-tutorial</description>
+        <accepts>Multi-module.html</accepts>
+    </rule>
+    <rule id="4877deb3">
+        <description>Created after removal of "Basic Gammer" from Go-tutorial</description>
+        <accepts>Basic-Gammer.html</accepts>
+    </rule>
+    <rule id="361c94ed">
+        <description>Created after removal of "数据结构与基础语法" from Go-tutorial</description>
+        <accepts>数据结构与基础语法.html</accepts>
+    </rule>
 </rules>
