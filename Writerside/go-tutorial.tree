@@ -7,4 +7,5 @@
                   start-page="Hello-Go.md">
     <toc-element topic="Hello-Go.md"/>
     <toc-element topic="Basic-Grammar.md"/>
+    <toc-element topic="Workspaces.md"/>
 </instance-profile>
