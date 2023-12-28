@@ -2,7 +2,7 @@
 
 本教程的示例代码为 data-access
 
-简单介绍一下工作区的概念与使用，建议用时二十分钟。
+简单介绍一下数据库连接，建议用时二十分钟。
 
 ## 准备工作
 
@@ -97,7 +97,6 @@ mkdir data-access
 cd data-access
 
 # 初始化项目
-$env:GOOS="windows"
 go mod init example/data-access
 
 ```
@@ -270,7 +269,7 @@ Album found: {2 Giant Steps John Coltrane 63.99}
 ID of added album: 6
 ```
 
-## Drivers
+## 常用 Drivers 指引
 
 Drivers for Go’s sql package include https://go.dev/wiki/SQLDrivers
 

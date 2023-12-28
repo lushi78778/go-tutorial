@@ -9,4 +9,8 @@
     <toc-element topic="Basic-Grammar.md"/>
     <toc-element topic="Workspaces.md"/>
     <toc-element topic="Connect-Mysql.md"/>
+    <toc-element topic="RESTful-API-via-Gin.md">
+    </toc-element>
+    <toc-element topic="Task-Album-Admin-System.md"/>
+    <toc-element topic="Generics.md"/>
 </instance-profile>
