@@ -1,13 +1,13 @@
-<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-27T23:26:24.4879347"><meta name="build-number" content="${buildNumber}">       <title>Hello Go | Go-tutorial</title><script id="virtual-toc-data" type="application/json">[{"id":"go_1","level":0,"title":"安装 Go","anchor":"#go_1"},{"id":"hello-world","level":0,"title":"第一个脚本：hello world","anchor":"#hello-world"},{"id":"f1f8f86d_414","level":0,"title":"外部包的使用","anchor":"#f1f8f86d_414"},{"id":"go","level":0,"title":"创建 Go 模块","anchor":"#go"},{"id":"f1f8f86d_440","level":0,"title":"异常处理","anchor":"#f1f8f86d_440"},{"id":"f1f8f86d_450","level":0,"title":"返回随机问候语","anchor":"#f1f8f86d_450"},{"id":"f1f8f86d_460","level":0,"title":"在一个请求中获取多个人的问候语","anchor":"#f1f8f86d_460"},{"id":"f1f8f86d_468","level":0,"title":"测试","anchor":"#f1f8f86d_468"},{"id":"f1f8f86d_482","level":0,"title":"编译应用程序","anchor":"#f1f8f86d_482"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Hello Go | Go-tutorial"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Go-tutorial Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="go-tutorialhello-go.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Hello Go | Go-tutorial"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "go-tutorialhello-go.html#webpage", "url": "go-tutorialhello-go.html", "name": "Hello Go | Go-tutorial", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "go-tutorial/#website", "url": "go-tutorial/", "name": "Go-tutorial Help" }</script><!-- End Schema.org --></head>      <body data-id="Hello-Go" data-main-title="Hello Go" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs=""  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Go-tutorial  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Hello-Go"   id="Hello-Go.md">Hello Go</h1>  <p id="f1f8f86d_401">本教程的示例代码为 hello</p><p id="f1f8f86d_402">接下来，你将用一小时时间，快速完成go的安装与入门，包括第一个hello world和关于模块的小教程</p><p id="f1f8f86d_403">在本教程中，你将编写打包到两个模块中的函数：一个带有发送问候语的逻辑的模块（greetings）;另一个是作为模块的调用方（hello）。</p><section class="chapter"><h2 id="go_1" data-toc="go_1"   >安装 Go</h2><p id="f1f8f86d_404">访问一下地址以获取go：https://go.dev/doc/install</p><div class="code-block" data-lang="bash"         >
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-28T17:23:33.3885675"><meta name="build-number" content="${buildNumber}">       <title>Hello Go | Go-tutorial</title><script id="virtual-toc-data" type="application/json">[{"id":"go_1","level":0,"title":"安装 Go","anchor":"#go_1"},{"id":"hello-world","level":0,"title":"第一个脚本：hello world","anchor":"#hello-world"},{"id":"363d0c04_1004","level":0,"title":"外部包的使用","anchor":"#363d0c04_1004"},{"id":"go","level":0,"title":"创建 Go 模块","anchor":"#go"},{"id":"363d0c04_1030","level":0,"title":"异常处理","anchor":"#363d0c04_1030"},{"id":"363d0c04_1040","level":0,"title":"返回随机问候语","anchor":"#363d0c04_1040"},{"id":"363d0c04_1050","level":0,"title":"在一个请求中获取多个人的问候语","anchor":"#363d0c04_1050"},{"id":"363d0c04_1058","level":0,"title":"测试","anchor":"#363d0c04_1058"},{"id":"363d0c04_1072","level":0,"title":"编译应用程序","anchor":"#363d0c04_1072"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Hello Go | Go-tutorial"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Go-tutorial Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="go-tutorialhello-go.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Hello Go | Go-tutorial"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "go-tutorialhello-go.html#webpage", "url": "go-tutorialhello-go.html", "name": "Hello Go | Go-tutorial", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "go-tutorial/#website", "url": "go-tutorial/", "name": "Go-tutorial Help" }</script><!-- End Schema.org --></head>      <body data-id="Hello-Go" data-main-title="Hello Go" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs=""  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Go-tutorial  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Hello-Go"   id="Hello-Go.md">Hello Go</h1>  <p id="363d0c04_991">本教程的示例代码为 hello</p><p id="363d0c04_992">接下来，你将用一小时时间，快速完成go的安装与入门，包括第一个hello world和关于模块的小教程</p><p id="363d0c04_993">在本教程中，你将编写打包到两个模块中的函数：一个带有发送问候语的逻辑的模块（greetings）;另一个是作为模块的调用方（hello）。</p><section class="chapter"><h2 id="go_1" data-toc="go_1"   >安装 Go</h2><p id="363d0c04_994">访问一下地址以获取go：https://go.dev/doc/install</p><div class="code-block" data-lang="bash"         >
 # 验证安装
 go version
-</div><p id="f1f8f86d_406">go version go1.21.5 windows/amd64</p></section><section class="chapter"><h2 id="hello-world" data-toc="hello-world"   >第一个脚本：hello world</h2><p id="f1f8f86d_407">在你认为合适的目录新建文件夹hello，用VS code 打开</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_996">go version go1.21.5 windows/amd64</p></section><section class="chapter"><h2 id="hello-world" data-toc="hello-world"   >第一个脚本：hello world</h2><p id="363d0c04_997">在你认为合适的目录新建文件夹hello，用VS code 打开</p><div class="code-block" data-lang="bash"         >
 # 初始化项目
 go mod init hello      
 
 # 定义系统                                         
 $env:GOOS=&quot;windows&quot;
-</div><p id="f1f8f86d_409">新建<code class="code" id="f1f8f86d_410">hello.go</code></p><div class="code-block" data-lang="go"         >
+</div><p id="363d0c04_999">新建<code class="code" id="363d0c04_1000">hello.go</code></p><div class="code-block" data-lang="go"         >
 package main // 声明一个主包（包是对函数进行分组的一种方式，它由同一目录中的所有文件组成）
 
 import &quot;fmt&quot;  // 导入fmt包，其中包含格式化文本的功能，包括打印到控制台。此程序包是安装Go时获得的标准库程序包之一。
@@ -19,7 +19,7 @@ func main() {
 </div><div class="code-block" data-lang="bash"         >
 # 运行 hello.go
 go run hello.go
-</div><p id="f1f8f86d_413">好了，现在你已经学会了最基础的一部分，包括注释写法</p></section><section class="chapter"><h2 id="f1f8f86d_414" data-toc="f1f8f86d_414"   >外部包的使用</h2><p id="f1f8f86d_415">修改刚刚的代码</p><div class="code-block" data-lang="go"         >
+</div><p id="363d0c04_1003">好了，现在你已经学会了最基础的一部分，包括注释写法</p></section><section class="chapter"><h2 id="363d0c04_1004" data-toc="363d0c04_1004"   >外部包的使用</h2><p id="363d0c04_1005">修改刚刚的代码</p><div class="code-block" data-lang="go"         >
 package main
 
 import &quot;fmt&quot;
@@ -29,7 +29,7 @@ import &quot;rsc.io/quote&quot;
 func main() {
     fmt.Println(quote.Go())
 }
-</div><p id="f1f8f86d_417">运行一下语句</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1007">运行一下语句</p><div class="code-block" data-lang="bash"         >
 # 添加新的模块要求到 go.sum
 go mod tidy
 
@@ -37,10 +37,10 @@ go mod tidy
 go run .
 # 或者
 go run .\hello.go
-</div><p id="f1f8f86d_419">参考输出</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1009">参考输出</p><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\go\hello&gt; go run .\hello.go
 Don't communicate by sharing memory, share memory by communicating.
-</div><p id="f1f8f86d_421">如果想要查询具体的外部包信息，请访问：https://pkg.go.dev/</p><p id="f1f8f86d_422">比如quote包：https://pkg.go.dev/search?q=quote <figure  id="f1f8f86d_423"><img alt="pkg-search.png" src="images/pkg-search.png" title="pkg-search.png"  width="1117" height="489"></figure></p><p id="f1f8f86d_424">可以在内页查询具体的版本信息 <figure  id="f1f8f86d_425"><img alt="pkg-search-info" src="images/pkg-search-info.png" title="pkg-search-info"  width="1783" height="890"></figure></p></section><section class="chapter"><h2 id="go" data-toc="go"   >创建 Go 模块</h2><p id="f1f8f86d_426">还是在我刚刚的文件夹内，请看目录结构</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1011">如果想要查询具体的外部包信息，请访问：https://pkg.go.dev/</p><p id="363d0c04_1012">比如quote包：https://pkg.go.dev/search?q=quote <figure  id="363d0c04_1013"><img alt="pkg-search.png" src="images/pkg-search.png" title="pkg-search.png"  width="1117" height="489"></figure></p><p id="363d0c04_1014">可以在内页查询具体的版本信息 <figure  id="363d0c04_1015"><img alt="pkg-search-info" src="images/pkg-search-info.png" title="pkg-search-info"  width="1783" height="890"></figure></p></section><section class="chapter"><h2 id="go" data-toc="go"   >创建 Go 模块</h2><p id="363d0c04_1016">还是在我刚刚的文件夹内，请看目录结构</p><div class="code-block" data-lang="bash"         >
 hello
 │   go.mod
 │   go.sum
@@ -53,7 +53,7 @@ hello
 └───hello
         go.mod
         hello.go
-</div><p id="f1f8f86d_428">现在我们一点点建立项目结构，新建greetings，greetings.go；新建hello，hello.go</p><p id="f1f8f86d_429">greetings 下初始化项目</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1018">现在我们一点点建立项目结构，新建greetings，greetings.go；新建hello，hello.go</p><p id="363d0c04_1019">greetings 下初始化项目</p><div class="code-block" data-lang="bash"         >
 # 这里example.com/greetings是命名模块的基本范式，&lt;prefix&gt;/&lt;descriptive-text&gt; eg:github.com/&lt;project-name&gt;
 go mod init example.com/greetings 
 </div><div class="code-block" data-lang="go"         >
@@ -69,7 +69,7 @@ func Hello(name string) string {
     message := fmt.Sprintf(&quot;Hi, %v. Welcome!&quot;, name)
     return message
 }
-</div><p id="f1f8f86d_432">hello 下初始化项目</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1022">hello 下初始化项目</p><div class="code-block" data-lang="bash"         >
 go mod init example.com/hello 
 </div><div class="code-block" data-lang="go"         >
 //hello.go
@@ -87,7 +87,7 @@ func main() {
     message := greetings.Hello(&quot;Gladys&quot;)
     fmt.Println(message)
 }
-</div><p id="f1f8f86d_435">现在你可能大致了解了，但是有一个疑问，匿名没有把example.com/greetings 发布到网上，hello.go怎么调用呢呢？</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1025">现在你可能大致了解了，但是有一个疑问，匿名没有把example.com/greetings 发布到网上，hello.go怎么调用呢呢？</p><div class="code-block" data-lang="bash"         >
 # 在 hello 目录中的命令提示符下，运行以下命令
 go mod edit -replace example.com/greetings=../greetings
 
@@ -95,13 +95,13 @@ go mod edit -replace example.com/greetings=../greetings
 go mod tidy # 该命令在 greetings 目录中找到了本地代码，然后 添加了 require 指令以指定导入包时的依赖关系
 
 go run .
-</div><p id="f1f8f86d_437">输出样例</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1027">输出样例</p><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\go\hello\hello&gt; go mod edit -replace example.com/greetings=../greetings   
 PS D:\projectCode\go\hello\hello&gt; go mod tidy
 go: found example.com/greetings in example.com/greetings v0.0.0-00010101000000-000000000000 
 PS D:\projectCode\go\hello\hello&gt; go run .
 Hi, Gladys. Welcome!
-</div><p id="f1f8f86d_439">好了，我想你已经掌握了一些小技巧，让我们继续，做一些异常处理</p></section><section class="chapter"><h2 id="f1f8f86d_440" data-toc="f1f8f86d_440"   >异常处理</h2><p id="f1f8f86d_441">修改greetings\greetings.go</p><div class="code-block" data-lang="go"         >
+</div><p id="363d0c04_1029">好了，我想你已经掌握了一些小技巧，让我们继续，做一些异常处理</p></section><section class="chapter"><h2 id="363d0c04_1030" data-toc="363d0c04_1030"   >异常处理</h2><p id="363d0c04_1031">修改greetings\greetings.go</p><div class="code-block" data-lang="go"         >
 // greetings.go
 
 package greetings
@@ -120,7 +120,7 @@ func Hello(name string) (string, error) {
     message := fmt.Sprintf(&quot;Hi, %v. Welcome!&quot;, name)
     return message, nil // 添加（表示没有错误）作为 成功返回。这样，调用方可以看到函数 成功。nil
 }
-</div><p id="f1f8f86d_443">修改 hello\hello.go</p><div class="code-block" data-lang="go"         >
+</div><p id="363d0c04_1033">修改 hello\hello.go</p><div class="code-block" data-lang="go"         >
 //hello.go
 
 package main
@@ -147,11 +147,11 @@ func main() {
 
     fmt.Println(message)
 }
-</div><p id="f1f8f86d_445"><code class="code" id="f1f8f86d_446">在hello路径下</code> （hello/hello）,运行<code class="code" id="f1f8f86d_447">hello.go</code></p><p id="f1f8f86d_448">输出样例</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1035"><code class="code" id="363d0c04_1036">在hello路径下</code> （hello/hello）,运行<code class="code" id="363d0c04_1037">hello.go</code></p><p id="363d0c04_1038">输出样例</p><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\go\hello\hello&gt; go run .
 greetings: empty name
 exit status 1
-</div></section><section class="chapter"><h2 id="f1f8f86d_450" data-toc="f1f8f86d_450"   >返回随机问候语</h2><p id="f1f8f86d_451">修改greetings\greetings.go</p><div class="code-block" data-lang="go"         >
+</div></section><section class="chapter"><h2 id="363d0c04_1040" data-toc="363d0c04_1040"   >返回随机问候语</h2><p id="363d0c04_1041">修改greetings\greetings.go</p><div class="code-block" data-lang="go"         >
 // greetings.go
 
 package greetings
@@ -185,7 +185,7 @@ func randomFormat() string {  //添加一个函数，该函数随机返回 选�
     使用 math/rand 包生成一个随机数，用于从切片中选择项目
     return formats[rand.Intn(len(formats))]
 }
-</div><p id="f1f8f86d_453">修改 hello\hello.go</p><div class="code-block" data-lang="go"         >
+</div><p id="363d0c04_1043">修改 hello\hello.go</p><div class="code-block" data-lang="go"         >
 // hello.go 只是添加 Gladys 的名字（或者如果您愿意，可以改用其他名字） 作为 hello.go 中函数调用的参数。
 
 package main
@@ -212,14 +212,14 @@ func main() {
 
     fmt.Println(message)
 }
-</div><p id="f1f8f86d_455"><code class="code" id="f1f8f86d_456">在hello路径下</code> （hello/hello）,运行<code class="code" id="f1f8f86d_457">hello.go</code></p><p id="f1f8f86d_458">输出样例</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1045"><code class="code" id="363d0c04_1046">在hello路径下</code> （hello/hello）,运行<code class="code" id="363d0c04_1047">hello.go</code></p><p id="363d0c04_1048">输出样例</p><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\go\hello\hello&gt; go run .
 Hi, Gladys. Welcome!
 PS D:\projectCode\go\hello\hello&gt; go run .
 Hail, Gladys! Well met!
 PS D:\projectCode\go\hello\hello&gt; go run .
 Great to see you, Gladys!
-</div></section><section class="chapter"><h2 id="f1f8f86d_460" data-toc="f1f8f86d_460"   >在一个请求中获取多个人的问候语</h2><p id="f1f8f86d_461">修改greetings\greetings.go</p><div class="code-block" data-lang="go"         >
+</div></section><section class="chapter"><h2 id="363d0c04_1050" data-toc="363d0c04_1050"   >在一个请求中获取多个人的问候语</h2><p id="363d0c04_1051">修改greetings\greetings.go</p><div class="code-block" data-lang="go"         >
 package greetings
 
 import (
@@ -266,7 +266,7 @@ func randomFormat() string {
     
     return formats[rand.Intn(len(formats))]
 }
-</div><p id="f1f8f86d_463">修改 hello\hello.go</p><div class="code-block" data-lang="go"         >
+</div><p id="363d0c04_1053">修改 hello\hello.go</p><div class="code-block" data-lang="go"         >
 package main
 
 import (
@@ -295,10 +295,10 @@ func main() {
     // messages to the console.
     fmt.Println(messages)
 }
-</div><p id="f1f8f86d_465">其实就是用循环输出了好多人的问候语</p><p id="f1f8f86d_466">输出样例</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1055">其实就是用循环输出了好多人的问候语</p><p id="363d0c04_1056">输出样例</p><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\book\go-tutorial\code\hello\hello&gt;  go run .
 map[Darrin:Great to see you, Darrin! Gladys:Hail, Gladys! Well met! Samantha:Great to see you, Samantha!]
-</div></section><section class="chapter"><h2 id="f1f8f86d_468" data-toc="f1f8f86d_468"   >测试</h2><p id="f1f8f86d_469">以 <code class="code" id="f1f8f86d_470">_test.go</code> 结尾的文件名会告诉命令 此文件包含测试函数。使用 <code class="code" id="f1f8f86d_471">go test</code>可以进行测试。</p><ul class="list _ul" id="f1f8f86d_472"><li class="list__item" id="f1f8f86d_473"><p>在 greetings 目录中，创建名为 greetings_test.go 的文件</p></li><li class="list__item" id="f1f8f86d_474"><p>在 greetings_test.go 中，粘贴以下代码并保存文件</p></li></ul><div class="code-block" data-lang="go"         >
+</div></section><section class="chapter"><h2 id="363d0c04_1058" data-toc="363d0c04_1058"   >测试</h2><p id="363d0c04_1059">以 <code class="code" id="363d0c04_1060">_test.go</code> 结尾的文件名会告诉命令 此文件包含测试函数。使用 <code class="code" id="363d0c04_1061">go test</code>可以进行测试。</p><ul class="list _ul" id="363d0c04_1062"><li class="list__item" id="363d0c04_1063"><p>在 greetings 目录中，创建名为 greetings_test.go 的文件</p></li><li class="list__item" id="363d0c04_1064"><p>在 greetings_test.go 中，粘贴以下代码并保存文件</p></li></ul><div class="code-block" data-lang="go"         >
 //greetings_test.go
 
 package greetings
@@ -328,7 +328,7 @@ func TestHelloEmpty(t *testing.T) {
         t.Fatalf(`Hello(&quot;&quot;) = %q, %v, want &quot;&quot;, error`, msg, err)
     }
 }
-</div><p id="f1f8f86d_476">测试应通过:</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1066">测试应通过:</p><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\book\go-tutorial\code\hello\greetings&gt; go test
 PASS
 ok      example.com/greetings   0.126s
@@ -339,7 +339,7 @@ PS D:\projectCode\book\go-tutorial\code\hello\greetings&gt; go test -v
 --- PASS: TestHelloEmpty (0.00s)
 PASS
 ok      example.com/greetings   0.052s
-</div><p id="f1f8f86d_478">故意编写错误函数</p><div class="code-block" data-lang="go"         >
+</div><p id="363d0c04_1068">故意编写错误函数</p><div class="code-block" data-lang="go"         >
 // 在 greetings/greetings.go 中，粘贴以下代码来代替 Hello 函数。
 func Hello(name string) (string, error) {
     // If no name was given, return an error with a message.
@@ -351,7 +351,7 @@ func Hello(name string) (string, error) {
     message := fmt.Sprint(randomFormat())
     return message, nil
 }
-</div><p id="f1f8f86d_480">测试应不通过:</p><div class="code-block" data-lang="bash"         >
+</div><p id="363d0c04_1070">测试应不通过:</p><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\book\go-tutorial\code\hello\greetings&gt; go test   
 --- FAIL: TestHelloName (0.00s)
     greetings_test.go:16: Hello(&quot;Gladys&quot;) = &quot;Great to see you, %v!&quot;, &lt;nil&gt;, want match for `\bGladys\b`, nil
@@ -367,7 +367,7 @@ PS D:\projectCode\book\go-tutorial\code\hello\greetings&gt; go test -v
 FAIL
 exit status 1
 FAIL    example.com/greetings   0.054s
-</div></section><section class="chapter"><h2 id="f1f8f86d_482" data-toc="f1f8f86d_482"   >编译应用程序</h2><div class="code-block" data-lang="bash"         >
+</div></section><section class="chapter"><h2 id="363d0c04_1072" data-toc="363d0c04_1072"   >编译应用程序</h2><div class="code-block" data-lang="bash"         >
 PS D:\projectCode\book\go-tutorial\code\hello&gt; cd .\hello\
 
 # 编译
@@ -380,4 +380,4 @@ map[Darrin:Hi, %v. Welcome! Gladys:Great to see you, %v! Samantha:Hail, %v! Well
 # 发现安装路径
 PS D:\projectCode\book\go-tutorial\code\hello\hello&gt; go list -f '{{.Target}}'
 C:\Users\lushi\go\bin\hello.exe # 可以把C:\Users\lushi\go\bin\放环境中，完成安装
-</div></section><div class="last-modified"> Last modified: 27 十二月 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">   <a class="navigation-links__next" href="basic-grammar.html">Basic Grammar</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>
+</div></section><div class="last-modified"> Last modified: 28 十二月 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">   <a class="navigation-links__next" href="basic-grammar.html">Basic Grammar</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

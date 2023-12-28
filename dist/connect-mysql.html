@@ -1,0 +1,229 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-28T17:23:33.3885675"><meta name="build-number" content="${buildNumber}">       <title>Connect Mysql | Go-tutorial</title><script id="virtual-toc-data" type="application/json">[{"id":"59366fa7_1315","level":0,"title":"准备工作","anchor":"#59366fa7_1315"},{"id":"59366fa7_1321","level":0,"title":"访问数据库","anchor":"#59366fa7_1321"},{"id":"drivers","level":0,"title":"Drivers","anchor":"#drivers"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Connect Mysql | Go-tutorial"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="Go-tutorial Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="go-tutorialconnect-mysql.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Connect Mysql | Go-tutorial"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "go-tutorialconnect-mysql.html#webpage", "url": "go-tutorialconnect-mysql.html", "name": "Connect Mysql | Go-tutorial", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "go-tutorial/#website", "url": "go-tutorial/", "name": "Go-tutorial Help" }</script><!-- End Schema.org --></head>      <body data-id="Connect-Mysql" data-main-title="Connect Mysql" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs=""  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Go-tutorial  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Connect-Mysql"   id="Connect-Mysql.md">Connect Mysql</h1>  <p id="59366fa7_1313">本教程的示例代码为 data-access</p><p id="59366fa7_1314">简单介绍一下工作区的概念与使用，建议用时二十分钟。</p><section class="chapter"><h2 id="59366fa7_1315" data-toc="59366fa7_1315"   >准备工作</h2><p id="59366fa7_1316">执行以下sql语句</p><div class="code-block" data-lang="sql"         >
+create database recordings;
+
+use recordings;
+
+DROP TABLE IF EXISTS album;
+CREATE TABLE album (
+  id         INT AUTO_INCREMENT NOT NULL,
+  title      VARCHAR(128) NOT NULL,
+  artist     VARCHAR(255) NOT NULL,
+  price      DECIMAL(5,2) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO album
+  (title, artist, price)
+VALUES
+  ('Blue Train', 'John Coltrane', 56.99),
+  ('Giant Steps', 'John Coltrane', 63.99),
+  ('Jeru', 'Gerry Mulligan', 17.99),
+  ('Sarah Vaughan', 'Sarah Vaughan', 34.98);
+</div><div class="code-block" data-lang="sql"         >
+/*
+ Navicat Premium Data Transfer
+
+ Source Server Type    : MySQL
+ Source Server Version : 80027
+ Source Host           : localhost:3306
+ Source Schema         : recordings
+
+ Target Server Type    : MySQL
+ Target Server Version : 80027
+ File Encoding         : 65001
+
+ Date: 28/12/2023 16:18:48
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for album
+-- ----------------------------
+DROP TABLE IF EXISTS `album`;
+CREATE TABLE `album`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `artist` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `price` decimal(5, 2) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of album
+-- ----------------------------
+INSERT INTO `album` VALUES (1, 'Blue Train', 'John Coltrane', 56.99);
+INSERT INTO `album` VALUES (2, 'Giant Steps', 'John Coltrane', 63.99);
+INSERT INTO `album` VALUES (3, 'Jeru', 'Gerry Mulligan', 17.99);
+INSERT INTO `album` VALUES (4, 'Sarah Vaughan', 'Sarah Vaughan', 34.98);
+INSERT INTO `album` VALUES (5, 'The Modern Sound of Betty Carter', 'Betty Carter', 49.99);
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+</div><p id="59366fa7_1319">建好表后，保存好自己的连接配置</p><div class="code-block" data-lang="go"         >
+// 我的配置
+cfg := mysql.Config{
+    User:   &quot;data-access&quot;,
+    Passwd: &quot;data-accessdata-access&quot;,
+    Net:    &quot;tcp&quot;,
+    Addr:   &quot;127.0.0.1:3306&quot;,
+    DBName: &quot;recordings&quot;,
+}
+</div></section><section class="chapter"><h2 id="59366fa7_1321" data-toc="59366fa7_1321"   >访问数据库</h2><section class="chapter"><h3 id="59366fa7_1322" data-toc="59366fa7_1322"   >前置惯常操作</h3><div class="code-block" data-lang="bash"         >
+mkdir data-access
+cd data-access
+
+# 初始化项目
+$env:GOOS=&quot;windows&quot;
+go mod init example/data-access
+
+</div></section><section class="chapter"><h3 id="sql" data-toc="sql"   >测试sql连接</h3><div class="code-block" data-lang="go"         >
+// main.go 
+
+package main
+
+import &quot;github.com/go-sql-driver/mysql&quot;
+
+// 声明一个 *sql 类型的变量。数据库。 这是您的数据库句柄
+var db *sql.DB
+
+func main() {
+    // 配置参数
+    cfg := mysql.Config{
+        // User:   os.Getenv(&quot;DBUSER&quot;),可以借此使用环境变量，构建docker镜像时常用
+        User:   &quot;data-access&quot;,
+        Passwd: &quot;data-accessdata-access&quot;,
+        Net:    &quot;tcp&quot;,
+        Addr:   &quot;127.0.0.1:3306&quot;,
+        DBName: &quot;recordings&quot;,
+    }
+    // 获取数据库连接柄
+    var err error
+    // 调用 sql.Open 初始化变量，传递 的返回值。dbFormatDSN
+    db, err = sql.Open(&quot;mysql&quot;, cfg.FormatDSN())
+    if err != nil {
+        // 为了简化代码，你要调用结束 执行并将错误打印到控制台。在生产代码中，以更优雅的方式处理错误。log.Fatal
+        log.Fatal(err)
+    }
+
+    // 调用 DB.Ping 到 确认连接到数据库是否正常。
+    pingErr := db.Ping()
+    
+    // 检查错误，以防连接失败。
+    if pingErr != nil {
+        log.Fatal(pingErr)
+    }
+    
+    // 如果连接成功，则打印一条消息
+    fmt.Println(&quot;Connected!&quot;)
+}
+</div></section><section class="chapter"><h3 id="59366fa7_1325" data-toc="59366fa7_1325"   >查询多行</h3><div class="code-block" data-lang="go"         >
+// main.go 紧挨着上面加上代码
+
+// 定义结构
+type Album struct {
+    ID     int64
+    Title  string
+    Artist string
+    Price  float32
+}
+
+// 根据名字查询
+func albumsByArtist(name string) ([]Album, error) {
+    // 声明定义的类型的切片
+    var albums []Album
+	// 执行语句以查询带有指定的艺术家的名字的记录
+	// Query的第一个参数是 SQL 语句。之后 参数，可以传递零个或多个任意类型的参数。减小xss注入措施
+    rows, err := db.Query(&quot;SELECT * FROM album WHERE artist = ?&quot;, name)
+    if err != nil {
+        return nil, fmt.Errorf(&quot;albumsByArtist %q: %v&quot;, name, err)
+    }
+    defer rows.Close()
+    // 循环访问返回的行，使用 Rows.Scan 将每行的列值分配给结构字段。Album
+	for rows.Next() {
+        var alb Album
+		// Scan获取指向 Go 值的指针列表，其中列值将被写入。将指针传递到使用运算符创建的变量中的字段。 通过指针写入以更新 struct 字段
+        if err := rows.Scan(&amp;alb.ID, &amp;alb.Title, &amp;alb.Artist, &amp;alb.Price); err != nil {
+            return nil, fmt.Errorf(&quot;albumsByArtist %q: %v&quot;, name, err)
+        }
+		// 在循环中，将新的附加到切片
+        albums = append(albums, alb)
+    }
+	// 循环后，使用 检查整个查询中的错误。请注意，如果查询本身失败，请检查错误 这是发现结果不完整的唯一方法。rows.Err
+    if err := rows.Err(); err != nil {
+        return nil, fmt.Errorf(&quot;albumsByArtist %q: %v&quot;, name, err)
+    }
+    return albums, nil
+}
+
+//============================================================================
+// main func
+//============================================================================
+// 调用您添加的albumsByArtistalbums函数，将其返回值分配给 一个新变量。
+albums, err := albumsByArtist(&quot;John Coltrane&quot;)
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Printf(&quot;Albums found: %v\n&quot;, albums)
+</div></section><section class="chapter"><h3 id="59366fa7_1327" data-toc="59366fa7_1327"   >查询单行</h3><div class="code-block" data-lang="go"         >
+// main.go 紧挨着上面加上代码
+// 查询带有指定ID的 
+func albumByID(id int64) (Album, error) {
+    var alb Album
+
+    row := db.QueryRow(&quot;SELECT * FROM album WHERE id = ?&quot;, id)
+    if err := row.Scan(&amp;alb.ID, &amp;alb.Title, &amp;alb.Artist, &amp;alb.Price); err != nil {
+        if err == sql.ErrNoRows {
+            return alb, fmt.Errorf(&quot;albumsById %d: no such album&quot;, id)
+        }
+        return alb, fmt.Errorf(&quot;albumsById %d: %v&quot;, id, err)
+    }
+    return alb, nil
+}
+
+//============================================================================
+// main func
+//============================================================================
+// 调用您添加的albumByID函数。 
+alb, err := albumByID(2)
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Printf(&quot;Album found: %v\n&quot;, alb)
+</div></section><section class="chapter"><h3 id="59366fa7_1329" data-toc="59366fa7_1329"   >添加数据</h3><div class="code-block" data-lang="go"         >
+// main.go 紧挨着上面加上代码
+// 添加新数据
+func addAlbum(alb Album) (int64, error) {
+	// 执行INSERT语句
+    result, err := db.Exec(&quot;INSERT INTO album (title, artist, price) VALUES (?, ?, ?)&quot;, alb.Title, alb.Artist, alb.Price)
+    if err != nil {
+        return 0, fmt.Errorf(&quot;addAlbum: %v&quot;, err)
+    }
+    id, err := result.LastInsertId()
+    if err != nil {
+        return 0, fmt.Errorf(&quot;addAlbum: %v&quot;, err)
+    }
+    return id, nil
+}
+
+//============================================================================
+// main func
+//============================================================================
+//使用addAlbum，并返回 ID 添加到变量
+albID, err := addAlbum(Album{
+    Title:  &quot;The Modern Sound of Betty Carter&quot;,
+    Artist: &quot;Betty Carter&quot;,
+    Price:  49.99,
+})
+if err != nil {
+    log.Fatal(err)
+}
+fmt.Printf(&quot;ID of added album: %v\n&quot;, albID)
+</div></section><section class="chapter"><h3 id="59366fa7_1331" data-toc="59366fa7_1331"   >输出样例</h3><div class="code-block" data-lang="bash"         >
+PS D:\projectCode\book\go-tutorial\code\data-access&gt; go run .
+Connected!
+Albums found: [{1 Blue Train John Coltrane 56.99} {2 Giant Steps John Coltrane 63.99}]
+Album found: {2 Giant Steps John Coltrane 63.99}
+ID of added album: 6
+</div></section></section><section class="chapter"><h2 id="drivers" data-toc="drivers"   >Drivers</h2><p id="59366fa7_1333">Drivers for Go&rsquo;s sql package include https://go.dev/wiki/SQLDrivers</p><ul class="list _ul" id="59366fa7_1334"><li class="list__item" id="59366fa7_1335"><p>Amazon AWS Athena: https://github.com/uber/athenadriver</p></li><li class="list__item" id="59366fa7_1336"><p>AWS Athena: https://github.com/segmentio/go-athena</p></li><li class="list__item" id="59366fa7_1337"><p>AWS DynamoDB: https://github.com/btnguyen2k/godynamo</p></li><li class="list__item" id="59366fa7_1338"><p>Apache Avatica/Phoenix: https://github.com/apache/calcite-avatica-go</p></li><li class="list__item" id="59366fa7_1339"><p>Apache H2: https://github.com/jmrobles/h2go</p></li><li class="list__item" id="59366fa7_1340"><p>Apache Hive: https://github.com/sql-machine-learning/gohive</p></li><li class="list__item" id="59366fa7_1341"><p>Apache Ignite/GridGain: https://github.com/amsokol/ignite-go-client</p></li><li class="list__item" id="59366fa7_1342"><p>Apache Impala: https://github.com/bippio/go-impala</p></li><li class="list__item" id="59366fa7_1343"><p>Azure Cosmos DB: https://github.com/btnguyen2k/gocosmos</p></li><li class="list__item" id="59366fa7_1344"><p>ClickHouse (uses HTTP API): https://github.com/mailru/go-clickhouse</p></li><li class="list__item" id="59366fa7_1345"><p>ClickHouse (uses native TCP interface): https://github.com/ClickHouse/clickhouse-go</p></li><li class="list__item" id="59366fa7_1346"><p>CockroachDB: Use any PostgreSQL driver</p></li><li class="list__item" id="59366fa7_1347"><p>Couchbase N1QL: https://github.com/couchbase/go_n1ql</p></li><li class="list__item" id="59366fa7_1348"><p>DB2 LUW (uses cgo): https://github.com/asifjalil/cli</p></li><li class="list__item" id="59366fa7_1349"><p>DB2 LUW and DB2/Z with DB2-Connect: https://bitbucket.org/phiggins/db2cli (Last updated 2015-08)</p></li><li class="list__item" id="59366fa7_1350"><p>DB2 LUW, z/OS, iSeries and Informix: https://github.com/ibmdb/go_ibm_db</p></li><li class="list__item" id="59366fa7_1351"><p>Databricks: https://github.com/databricks/databricks-sql-go</p></li><li class="list__item" id="59366fa7_1352"><p>DuckDB: https://github.com/marcboeker/go-duckdb</p></li><li class="list__item" id="59366fa7_1353"><p>Exasol: (pure Go): https://github.com/exasol/exasol-driver-go</p></li><li class="list__item" id="59366fa7_1354"><p>Firebird SQL: https://github.com/nakagami/firebirdsql</p></li><li class="list__item" id="59366fa7_1355"><p>Genji (pure go): https://github.com/genjidb/genji</p></li><li class="list__item" id="59366fa7_1356"><p>Google Cloud BigQuery: https://github.com/solcates/go-sql-bigquery</p></li><li class="list__item" id="59366fa7_1357"><p>Google Cloud Spanner: https://github.com/googleapis/go-sql-spanner</p></li><li class="list__item" id="59366fa7_1358"><p>Google Cloud Spanner: https://github.com/rakyll/go-sql-driver-spanner</p></li><li class="list__item" id="59366fa7_1359"><p>MS ADODB: https://github.com/mattn/go-adodb</p></li><li class="list__item" id="59366fa7_1360"><p>MS SQL Server (pure go): https://github.com/microsoft/go-mssqldb</p></li><li class="list__item" id="59366fa7_1361"><p>MS SQL Server (uses cgo): https://github.com/minus5/gofreetds</p></li><li class="list__item" id="59366fa7_1362"><p>MaxCompute: https://github.com/sql-machine-learning/gomaxcompute</p></li><li class="list__item" id="59366fa7_1363"><p>MySQL: https://github.com/go-sql-driver/mysql/ [*]</p></li><li class="list__item" id="59366fa7_1364"><p>MySQL: https://github.com/siddontang/go-mysql/ [**] (also handles replication)</p></li><li class="list__item" id="59366fa7_1365"><p>MySQL: https://github.com/ziutek/mymysql [*]</p></li><li class="list__item" id="59366fa7_1366"><p>ODBC: https://bitbucket.org/miquella/mgodbc (Last updated 2016-02)</p></li><li class="list__item" id="59366fa7_1367"><p>ODBC: https://github.com/alexbrainman/odbc</p></li><li class="list__item" id="59366fa7_1368"><p>Oracle (pure go): https://github.com/sijms/go-ora</p></li><li class="list__item" id="59366fa7_1369"><p>Oracle (uses cgo): https://github.com/godror/godror</p></li><li class="list__item" id="59366fa7_1370"><p>Oracle (uses cgo): https://github.com/mattn/go-oci8</p></li><li class="list__item" id="59366fa7_1371"><p>Oracle (uses cgo): https://gopkg.in/rana/ora.v4</p></li><li class="list__item" id="59366fa7_1372"><p>Postgres (pure Go): https://github.com/jackc/pgx [*]</p></li><li class="list__item" id="59366fa7_1373"><p>Postgres (pure Go): https://github.com/lib/pq [*]</p></li><li class="list__item" id="59366fa7_1374"><p>Postgres (uses cgo): https://github.com/jbarham/gopgsqldriver</p></li><li class="list__item" id="59366fa7_1375"><p>Presto: https://github.com/prestodb/presto-go-client</p></li><li class="list__item" id="59366fa7_1376"><p>QL: https://pkg.go.dev/modernc.org/ql</p></li><li class="list__item" id="59366fa7_1377"><p>SAP ASE (pure go): https://github.com/SAP/go-ase</p></li><li class="list__item" id="59366fa7_1378"><p>SAP ASE (uses cgo): https://github.com/SAP/cgo-ase</p></li><li class="list__item" id="59366fa7_1379"><p>SAP HANA (pure go): https://github.com/SAP/go-hdb</p></li><li class="list__item" id="59366fa7_1380"><p>SAP HANA (uses cgo): https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.03/en-US/0ffbe86c9d9f44338441829c6bee15e6.html</p></li><li class="list__item" id="59366fa7_1381"><p>SQL over REST: https://github.com/adaptant-labs/go-sql-rest-driver</p></li><li class="list__item" id="59366fa7_1382"><p>SQLite (uses cgo): https://github.com/gwenn/gosqlite - Supports SQLite dynamic data typing</p></li><li class="list__item" id="59366fa7_1383"><p>SQLite (uses cgo): https://github.com/mattn/go-sqlite3 [*]</p></li><li class="list__item" id="59366fa7_1384"><p>SQLite (uses cgo): https://github.com/mxk/go-sqlite</p></li><li class="list__item" id="59366fa7_1385"><p>SQLite: (pure go): https://modernc.org/sqlite</p></li><li class="list__item" id="59366fa7_1386"><p>SQLite: (uses cgo): https://github.com/rsc/sqlite</p></li><li class="list__item" id="59366fa7_1387"><p>SingleStore: Use any MySQL driver</p></li><li class="list__item" id="59366fa7_1388"><p>Snowflake (pure Go): https://github.com/snowflakedb/gosnowflake</p></li><li class="list__item" id="59366fa7_1389"><p>Sybase ASE (pure go): https://github.com/thda/tds</p></li><li class="list__item" id="59366fa7_1390"><p>Sybase SQL Anywhere: https://github.com/a-palchikov/sqlago</p></li><li class="list__item" id="59366fa7_1391"><p>TiDB: Use any MySQL driver</p></li><li class="list__item" id="59366fa7_1392"><p>Trino: https://github.com/trinodb/trino-go-client</p></li><li class="list__item" id="59366fa7_1393"><p>Vertica: https://github.com/vertica/vertica-sql-go</p></li><li class="list__item" id="59366fa7_1394"><p>Vitess: https://pkg.go.dev/vitess.io/vitess/go/vt/vitessdriver</p></li><li class="list__item" id="59366fa7_1395"><p>YDB (pure go): https://github.com/ydb-platform/ydb-go-sdk</p></li><li class="list__item" id="59366fa7_1396"><p>YQL (Yahoo! Query Language): https://github.com/mattn/go-yql</p></li></ul><p id="59366fa7_1397">Drivers marked with [*] are both included in and pass the compatibility test suite at https://github.com/bradfitz/go-sql-test. Drivers marked with [**] pass the compatibility test suite but are not currently included in it.</p></section><div class="last-modified"> Last modified: 28 十二月 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="workspaces.html">Workspaces</a>   </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>
