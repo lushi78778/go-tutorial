@@ -1,5 +1,9 @@
 # Hello Go
 
+## 项目信息
+
+地址：https://github.com/lushi78778/go-tutorial
+
 本教程的示例代码为 hello
 
 接下来，你将用约六十分钟的时间，快速完成go的安装与入门，包括第一个hello world和关于模块的小教程
