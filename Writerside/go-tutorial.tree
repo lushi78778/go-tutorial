@@ -13,4 +13,6 @@
     </toc-element>
     <toc-element topic="Task-Album-Admin-System.md"/>
     <toc-element topic="Generics.md"/>
+    <toc-element topic="Find-and-fix-vulnerable-dependencies-with-govulncheck.md"/>
+    <toc-element topic="Finally.md"/>
 </instance-profile>

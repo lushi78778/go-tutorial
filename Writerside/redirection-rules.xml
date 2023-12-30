@@ -22,4 +22,12 @@
         <description>Created after removal of "数据结构与基础语法" from Go-tutorial</description>
         <accepts>数据结构与基础语法.html</accepts>
     </rule>
+    <rule id="15b946b6">
+        <description>Created after removal of "Fuzz" from Go-tutorial</description>
+        <accepts>Fuzz.html</accepts>
+    </rule>
+    <rule id="4889e83f">
+        <description>Created after removal of "The Go Programming Language Specification" from Go-tutorial</description>
+        <accepts>The-Go-Programming-Language-Specification.html</accepts>
+    </rule>
 </rules>
