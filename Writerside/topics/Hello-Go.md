@@ -1,8 +1,5 @@
 # Getting Started
 
-## 项目信息
-
-地址：https://github.com/lushi78778/go-tutorial
 
 本教程的示例代码为 hello
 

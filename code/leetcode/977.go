@@ -2,7 +2,7 @@
 package main 
 
 import "fmt" 
-import "sort" 
+import "sort"
 
 func main() {
 
@@ -29,10 +29,11 @@ func main() {
 	// 请你设计时间复杂度为 O(n) 的算法解决本问题
 
 	var nums []int = []int{-7,-3,2,3,11}
+	fmt.Println(sortedSquares(nums))
 	fmt.Println(sortedSquares2(nums))
 }
 
-// 暴力排序
+// 直接排序 32ms
 func sortedSquares(nums []int) []int {
 	var res []int
 	for i:=0; i < len(nums); i++ {
@@ -42,34 +43,22 @@ func sortedSquares(nums []int) []int {
 	return res
 }
 
-
-// 双指针排序
+// 双指针 48ms
 func sortedSquares2(nums []int) []int {
-	var res []int
-	for i:=0; i < len(nums); i++ {
-		res = append(res, nums[i] * nums[i])
-	}
-	fmt.Println(res)
-
-	var res2 []int
-	left := 0
-	for res[left] > res[left+1]{
-		left++	
-	}
-	right := left + 1
-	for left >= 0 && right < len(res) {
-		if res[left] > res[right]{
-			res2 = append(res2,res[right])
-			if right < len(res)-1{
-				right++
-			}
+	n := len(nums)
+	res := make([]int, n)
+	// 声明两侧指针，以及路由
+	left, right, clock:= 0, len(nums)-1, len(nums)-1
+	for left <= right {
+		leftsq, rightsq := nums[left]*nums[left], nums[right]*nums[right]
+		if leftsq <= rightsq {
+			res[clock] = rightsq
+			right--
 		}else{
-			res2 = append(res2,res[left])
-			if left > 0{
-				left--
-			}
+			res[clock] = leftsq
+			left++
 		}
+		clock--
 	}
-
-	return res2
+	return res
 }
